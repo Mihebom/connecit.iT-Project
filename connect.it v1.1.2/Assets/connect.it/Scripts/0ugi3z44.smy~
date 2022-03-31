@@ -1,0 +1,176 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+using Mirror;
+
+
+
+
+public sealed class Tile : NetworkBehaviour
+{
+    
+    
+
+
+    public int x;
+
+
+
+   
+    public int y;
+
+    
+    private Counter _counter;
+    
+    public Counter counter
+    {
+        get => _counter;
+
+        set
+        {
+
+            if (_counter == value) return;
+
+            _counter = value;
+
+            icon.sprite = _counter.sprite;
+        }
+
+    }
+
+  
+
+
+    [SyncVar]
+    public Image icon;
+
+
+
+    public Button button;
+
+    public Tile left => x > 0 ? GameBoard.Instance.tiles[x - 1, y] : null;
+    public Tile top => y > 0 ? GameBoard.Instance.tiles[x, y - 1] : null;
+    public Tile right => x < GameBoard.Instance.rowWidth - 1 ? GameBoard.Instance.tiles[x + 1, y] : null;
+    public Tile bottom => y < GameBoard.Instance.rowHeight - 1 ? GameBoard.Instance.tiles[x, y + 1] : null;
+
+
+    public Tile[] neighbour => new Tile[]
+       {
+        left,
+        top,
+        right,
+        bottom,
+       };
+
+
+
+    private void Start()
+
+    {
+       
+
+
+        button.onClick.AddListener(() => GameBoard.Instance.Select(this));
+
+    }
+
+    
+    public List<Tile> connectedTiles(List<Tile> exclude = null)
+    {
+        var result = new List<Tile> { this, };
+
+        if (exclude == null)
+        {
+
+            exclude = new List<Tile> { this, };
+        }
+        else
+        {
+
+            exclude.Add(this);
+        }
+
+        foreach (var neighbours in neighbour)
+        {
+
+            if (neighbours == null || exclude.Contains(neighbours) || neighbours.counter != counter) continue;
+
+            result.AddRange(neighbours.connectedTiles(exclude));
+        }
+
+        return result;
+
+    }
+
+    
+
+}
+
+public static class CustomReadWriteFunctionsGB
+{
+    public static void WriteTileGB(this NetworkWriter writer, Tile tile)
+    {
+        NetworkIdentity networkIdentity = tile.GetComponent<NetworkIdentity>();
+        writer.WriteNetworkIdentity(networkIdentity);
+    }
+
+
+    public static Tile ReadTileGB(this NetworkReader reader)
+    {
+        NetworkIdentity networkIdentity = reader.ReadNetworkIdentity();
+        Tile tile = networkIdentity != null
+            ? networkIdentity.GetComponent<Tile>()
+            : null;
+
+        return tile;
+    }
+    public static void WriteRowGB(this NetworkWriter writer, Row row)
+    {
+        NetworkIdentity networkIdentity = row.GetComponent<NetworkIdentity>();
+        writer.WriteNetworkIdentity(networkIdentity);
+    }
+
+    public static Row ReadRowGB(this NetworkReader reader)
+    {
+        NetworkIdentity networkIdentity = reader.ReadNetworkIdentity();
+        Row row = networkIdentity != null
+            ? networkIdentity.GetComponent<Row>()
+            : null;
+
+        return row;
+    }
+    public static void WriteImageGB(this NetworkWriter writer, Image image)
+    {
+        NetworkIdentity networkIdentity = image.GetComponent<NetworkIdentity>();
+        writer.WriteNetworkIdentity(networkIdentity);
+    }
+
+    public static Image ReadImageGB(this NetworkReader reader)
+    {
+        NetworkIdentity networkIdentity = reader.ReadNetworkIdentity();
+        Image image = networkIdentity != null
+            ? networkIdentity.GetComponent<Image>()
+            : null;
+
+        return image;
+    }
+
+    public static void WriteButtonGB(this NetworkWriter writer, Button button)
+    {
+        NetworkIdentity networkIdentity = button.GetComponent<NetworkIdentity>();
+        writer.WriteNetworkIdentity(networkIdentity);
+    }
+    public static Button ReadButtonGB(this NetworkReader reader)
+    {
+        NetworkIdentity networkIdentity = reader.ReadNetworkIdentity();
+        Button button = networkIdentity != null
+            ? networkIdentity.GetComponent<Button>()
+            : null;
+
+        return button;
+    }
+
+}
+
+

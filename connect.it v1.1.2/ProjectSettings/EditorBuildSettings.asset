@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/connect.it/Scenes/UserLogin.unity
+    guid: 88ba01d403b17f84c9925a24da49be70
+  - enabled: 1
+    path: Assets/connect.it/Scenes/UserRegister.unity
+    guid: 3747f886c1b3a0445aad49e9add409ea
+  - enabled: 1
+    path: Assets/connect.it/Scenes/BoardList.unity
+    guid: 66082bc2e5b80a5498255881340b8b00
+  - enabled: 1
+    path: Assets/connect.it/Scenes/Chat.unity
+    guid: 310d1052516426047be1ace9377dc584
+  - enabled: 1
+    path: Assets/connect.it/Scenes/ChinaBoard.unity
+    guid: 72ae271bf32093f46ac23d203769767a
+  - enabled: 1
+    path: Assets/connect.it/Scenes/ChinaLobby.unity
+    guid: 7363fa34db85eb84482f8e3c4b1ce6f1
+  - enabled: 1
+    path: Assets/connect.it/Scenes/FranceBoard.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/connect.it/Scenes/FranceLobby.unity
+    guid: 80fb8dc2bfffdcd4cab6e8bafcf8c743
+  - enabled: 1
+    path: Assets/connect.it/Scenes/Join-HostChat.unity
+    guid: 1fd4669366dd2934395703272a318796
+  - enabled: 1
+    path: Assets/connect.it/Scenes/LeaderBoard.unity
+    guid: ae3941660f2f8ee44b8542f8c5b1bea9
+  - enabled: 1
+    path: Assets/connect.it/Scenes/LobbyMenu.unity
+    guid: 94167f19b4392bb4ea5cd075103ab157
+  - enabled: 1
+    path: Assets/connect.it/Scenes/MainMenu.unity
+    guid: 8358f3809f0270e45a625274334864e5
+  - enabled: 1
+    path: Assets/connect.it/Scenes/NigeriaLobby.unity
+    guid: 38ef1ebb9094176429addbe541296eea
+  - enabled: 1
+    path: Assets/connect.it/Scenes/NigeriaBoard.unity
+    guid: 755861137a2207e42a6da0638205f30d
+  - enabled: 1
+    path: Assets/connect.it/Scenes/PakistanBoard.unity
+    guid: dbcf5dd92d91d49439dd61767d54791a
+  - enabled: 1
+    path: Assets/connect.it/Scenes/PakistanLobby.unity
+    guid: 0f54cd5b09e572d4da0a2c7360943831
+  - enabled: 1
+    path: Assets/connect.it/Scenes/PlayerProfile.unity
+    guid: 5d840ee76a17437428a08a21776c12b9
+  - enabled: 1
+    path: Assets/connect.it/Scenes/ChinaMatchMaking.unity
+    guid: 0873de0a1807ff34b8cf037dedfe5b2e
+  - enabled: 1
+    path: Assets/connect.it/Scenes/userInventory.unity
+    guid: d1933b00f619b824badee4681ec95cd9
+  - enabled: 1
+    path: Assets/connect.it/Scenes/NigeriaMatchMaking.unity
+    guid: acedd64e0fea70641ba6ded897e1a642
+  - enabled: 1
+    path: Assets/connect.it/Scenes/PakistanMatchMaking.unity
+    guid: 76d1a1228008bea4c991223094237bb9
+  - enabled: 1
+    path: Assets/connect.it/Scenes/PlayerStore.unity
+    guid: 17ec93b2e992b9848a69af22d4c51c62
+  - enabled: 1
+    path: Assets/connect.it/Scenes/FranceMatchMaking.unity
+    guid: 1b0b4b4ebaae061418ae9fce0f006b2f
+  m_configObjects: {}

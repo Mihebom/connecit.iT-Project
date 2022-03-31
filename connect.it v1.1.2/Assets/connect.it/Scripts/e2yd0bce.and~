@@ -1,0 +1,20 @@
+using UnityEngine;
+using Mirror;
+
+public sealed class Row : NetworkBehaviour
+{
+  
+ 
+   
+    public SyncList<Tile> tiles;
+
+    
+    
+}
+
+public class SyncListTile : SyncList<Tile>
+{
+
+    private SyncListTile synctile = new SyncListTile();
+}
+

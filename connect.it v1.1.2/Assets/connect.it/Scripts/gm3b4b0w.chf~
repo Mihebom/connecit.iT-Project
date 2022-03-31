@@ -1,0 +1,44 @@
+using UnityEngine;
+using Mirror;
+
+
+
+
+public sealed class Row : NetworkBehaviour
+{
+
+
+    private Tile[] tile;
+    public SyncList<Tile> tiles = new SyncList<Tile>();
+    
+
+
+    public Row()
+    {
+
+        Row row = new Row();
+
+        for (int i = 0; i < tile.Length; i++)
+        {
+            Tile tle = tile[i];
+            tiles.Add(tle);
+        }
+
+
+
+
+    }
+
+
+    
+}
+    
+ 
+
+
+
+    
+    
+
+
+
